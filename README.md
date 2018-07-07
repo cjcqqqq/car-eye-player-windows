@@ -7,7 +7,7 @@ car-eye-RTSP-player Windows 播放器是由car-eye团队开发和维护的一个
 
 运行情况：
 
-
+![](https://github.com/Car-eye-team/Car-eye-RTSP-player-windows/blob/master/windows/%E6%8E%A7%E4%BB%B6.png)
 
 
 # 联系我们
