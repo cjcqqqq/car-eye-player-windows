@@ -5,7 +5,9 @@
 car-eye-RTSP-player Windows 播放器是由car-eye团队开发和维护的一个完善的RTSP流媒体播放器项目，视频编码支持H.264，H.265，MPEG4，MJPEG，音频支持G711A，G711U，G726，AAC，支持RTSP over TCP/UDP协议，支持软/硬解码。
 其中自带的RTSP控件可以方便的集成到IE浏览器。播放的实时性好，是一套功能完善的RTSP播放器。
 
-控件使用实例，请参考car-eye流媒体平台www.liveoss.com  
+运行情况：
+
+
 
 
 # 联系我们
