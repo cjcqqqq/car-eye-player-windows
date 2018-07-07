@@ -17,10 +17,7 @@ Car-eye-player-rtsp android你扫描二维码下载
 
 ![](https://github.com/Car-eye-team/Car-eye-RTSP-player-windows/blob/master/windows/android%20RTSP-%E6%92%AD%E6%94%BE%E5%99%A8%20%E4%BA%8C%E7%BB%B4%E7%A0%81.png)
 
-Car-player-rtsp-IOS    
-
-
-
+Car-player-rtsp-IOS: https://github.com/Car-eye-team/Car-eye-player-IOS
 
 
 # 联系我们
