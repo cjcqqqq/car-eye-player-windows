@@ -10,6 +10,16 @@ car-eye-RTSP-player Windows 播放器是由car-eye团队开发和维护的一个
 ![](https://github.com/Car-eye-team/Car-eye-RTSP-player-windows/blob/master/windows/%E6%8E%A7%E4%BB%B6.png)
 
 
+# Car-eye-player 播放器系列
+
+Car-eye-player-rtsp android你扫描二维码下载
+
+
+
+
+
+
+
 # 联系我们
 
 car-eye 开源官方网址：www.car-eye.cn    
