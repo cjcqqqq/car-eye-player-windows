@@ -429,9 +429,12 @@ namespace CarEyePlayerDemo.Player
 					break;
 
 				case PlayerMethods.MSG_PLAY_COMPLETED:
-					ShowTipString("播放完成");
 					Debug.WriteLine("Play completed...");
-					StopPlay();
+					if (mTotalTime > 1000)
+					{
+						ShowTipString("播放完成");
+						StopPlay();
+					}
 					break;
 
 				case PlayerMethods.MSG_STREAM_CONNECTED:
