@@ -110,12 +110,12 @@ namespace CarEyePlayerDemo.Player
 			try
 			{
 				Debug.WriteLine("Start play...");
-// 				mPlayer = (IntPtr)Invoke(new Func<IntPtr>(() => PlayerMethods.CEPlayer_Open(Url, this.lblView.Handle, CE_VIDEO_RENDER_TYPE.VIDEO_RENDER_TYPE_GDI,
-// 								CE_VIDEO_SCALE_MODE.VIDEO_MODE_STRETCHED, 100, 50)));
+				// 				mPlayer = (IntPtr)Invoke(new Func<IntPtr>(() => PlayerMethods.CEPlayer_Open(Url, this.lblView.Handle, CE_VIDEO_RENDER_TYPE.VIDEO_RENDER_TYPE_GDI,
+				// 								CE_VIDEO_SCALE_MODE.VIDEO_MODE_STRETCHED, 100, 50)));
+				this.trackVolume.Value = 7;
                 mPlayer = PlayerMethods.CEPlayer_Open(this.Url, this.lblView.Handle, CE_VIDEO_RENDER_TYPE.VIDEO_RENDER_TYPE_GDI,
-                                                                 CE_VIDEO_SCALE_MODE.VIDEO_MODE_STRETCHED, 100, 50);
+                                                                 CE_VIDEO_SCALE_MODE.VIDEO_MODE_STRETCHED, 100, 95);
                 // 								mPlayer = PlayerMethods.player_open(this.Url, this.lblView.Handle, IntPtr.Zero);
-
                 Debug.WriteLine("Start playing...");
 			}
 			catch (AccessViolationException ex)
@@ -153,6 +153,7 @@ namespace CarEyePlayerDemo.Player
 			this.btnRecord.Enabled = this.btnScreenshot.Enabled = false;
 			this.btnFast.Enabled = this.btnSlow.Enabled = false;
 			this.pgrPlay.Enabled = false;
+			this.trackVolume.Enabled = false;
 			this.tmrPlay.Stop();
 			this.lblCurTime.Text = "00:00";
 			if (mPlayer != IntPtr.Zero)
@@ -410,6 +411,7 @@ namespace CarEyePlayerDemo.Player
 						this.btnRecord.Enabled = true;
 						this.btnScreenshot.Enabled = true;
 						this.btnFast.Enabled = this.btnSlow.Enabled = true;
+						this.trackVolume.Enabled = true;
 						this.pgrPlay.Enabled = (mTotalTime > 999);
 						int totalSecond = (int)(mTotalTime / 1000);
 						mCurrentTime = 0;
@@ -665,6 +667,29 @@ namespace CarEyePlayerDemo.Player
 				}
 				tmrPlay.Start();
 			}));
+		}
+
+		/// <summary>
+		/// 修改音量
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void trackVolume_ValueChanged(object sender, EventArgs e)
+		{
+			if (mPlayer == IntPtr.Zero)
+			{
+				return;
+			}
+
+			try
+			{
+				int volume = -255 + this.trackVolume.Value * 50;
+				PlayerMethods.SetParam(mPlayer, CE_PARAM_ID.PARAM_AUDIO_VOLUME, volume);
+			}
+			catch
+			{
+
+			}
 		}
 	}
 }

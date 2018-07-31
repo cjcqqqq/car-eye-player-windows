@@ -30,6 +30,7 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			this.pnlBase = new System.Windows.Forms.Panel();
+			this.trackVolume = new System.Windows.Forms.TrackBar();
 			this.lblTotalTime = new System.Windows.Forms.Label();
 			this.lblCurTime = new System.Windows.Forms.Label();
 			this.pgrPlay = new System.Windows.Forms.TrackBar();
@@ -44,6 +45,7 @@
 			this.tmrTip = new System.Windows.Forms.Timer(this.components);
 			this.tmrPlay = new System.Windows.Forms.Timer(this.components);
 			this.pnlBase.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.trackVolume)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pgrPlay)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -53,6 +55,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.pnlBase.BackColor = System.Drawing.SystemColors.Control;
+			this.pnlBase.Controls.Add(this.trackVolume);
 			this.pnlBase.Controls.Add(this.lblTotalTime);
 			this.pnlBase.Controls.Add(this.lblCurTime);
 			this.pnlBase.Controls.Add(this.pgrPlay);
@@ -67,6 +70,21 @@
 			this.pnlBase.Name = "pnlBase";
 			this.pnlBase.Size = new System.Drawing.Size(454, 342);
 			this.pnlBase.TabIndex = 1;
+			// 
+			// trackVolume
+			// 
+			this.trackVolume.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.trackVolume.AutoSize = false;
+			this.trackVolume.Enabled = false;
+			this.trackVolume.LargeChange = 1;
+			this.trackVolume.Location = new System.Drawing.Point(429, 31);
+			this.trackVolume.Name = "trackVolume";
+			this.trackVolume.Orientation = System.Windows.Forms.Orientation.Vertical;
+			this.trackVolume.Size = new System.Drawing.Size(21, 267);
+			this.trackVolume.TabIndex = 6;
+			this.trackVolume.TickStyle = System.Windows.Forms.TickStyle.None;
+			this.trackVolume.ValueChanged += new System.EventHandler(this.trackVolume_ValueChanged);
 			// 
 			// lblTotalTime
 			// 
@@ -184,7 +202,7 @@
 			this.lblView.ForeColor = System.Drawing.Color.WhiteSmoke;
 			this.lblView.Location = new System.Drawing.Point(0, 25);
 			this.lblView.Name = "lblView";
-			this.lblView.Size = new System.Drawing.Size(454, 273);
+			this.lblView.Size = new System.Drawing.Size(428, 273);
 			this.lblView.TabIndex = 4;
 			this.lblView.Text = "无 图 像 ...";
 			this.lblView.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -218,6 +236,7 @@
 			this.Size = new System.Drawing.Size(456, 344);
 			this.pnlBase.ResumeLayout(false);
 			this.pnlBase.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.trackVolume)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pgrPlay)).EndInit();
 			this.ResumeLayout(false);
 
@@ -239,5 +258,6 @@
 		private System.Windows.Forms.Label lblCurTime;
 		private System.Windows.Forms.Label lblTotalTime;
 		private System.Windows.Forms.Timer tmrPlay;
+		private System.Windows.Forms.TrackBar trackVolume;
 	}
 }
