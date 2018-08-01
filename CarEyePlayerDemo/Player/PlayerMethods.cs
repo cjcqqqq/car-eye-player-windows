@@ -141,8 +141,18 @@ namespace CarEyePlayerDemo.Player
 		/// <param name="color">颜色</param>
 		/// <param name="tittleContent">OSD显示内容</param>
 		/// <returns></returns>
-		[DllImport("libCarEyePlayer.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "CEPlayer_SetOSD")]
+		[DllImport("libCarEyePlayer.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl, EntryPoint = "CEPlayer_SetOSD")]
 		public static extern int CEPlayer_SetOSD(IntPtr hplayer, int x, int y, int color, string tittleContent);
+
+		/// <summary>
+		/// 设置水印字体属性
+		/// </summary>
+		/// <param name="hplayer">播放器对象句柄</param>
+		/// <param name="fontName">字体名</param>
+		/// <param name="fontSize">字体大小</param>
+		/// <returns></returns>
+		[DllImport("libCarEyePlayer.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl, EntryPoint = "CEPlayer_SetOSDFont")]
+		public static extern int CEPlayer_SetOSDFont(IntPtr hplayer, string fontName, int fontSize);
 
 		/// <summary>
 		/// 设置参数

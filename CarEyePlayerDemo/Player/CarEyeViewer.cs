@@ -402,6 +402,7 @@ namespace CarEyePlayerDemo.Player
 			switch (e.Status)
 			{
 				case PlayerMethods.MSG_OPEN_DONE:
+					PlayerMethods.CEPlayer_SetOSDFont(mPlayer, "微软雅黑", 24);
 					ShowTipString($"成功打开链接{DateTime.Now.ToLongTimeString()}...");
 					Debug.WriteLine("Open done...");
 					mTotalTime = PlayerMethods.GetLongParam(mPlayer, CE_PARAM_ID.PARAM_MEDIA_DURATION);
