@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using CarEyePlayerDemo.Player;
+using CarEyePlayerDemo.Properties;
 
 namespace CarEyePlayerDemo
 {
@@ -65,6 +66,10 @@ namespace CarEyePlayerDemo
 				return;
 			}
 			SetLayout();
+			mViewers[0].Url = Settings.Default.Url1;
+			mViewers[1].Url = Settings.Default.Url2;
+			mViewers[2].Url = Settings.Default.Url3;
+			mViewers[3].Url = Settings.Default.Url4;
 		}
 
 		/// <summary>
@@ -205,6 +210,32 @@ namespace CarEyePlayerDemo
 
 			mSplitCount = (byte)(mSplitCount == 1 ? 4 : 1);
 			SetLayout();
+		}
+
+		/// <summary>
+		/// 窗口关闭时保存URL
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			if (!string.IsNullOrWhiteSpace(mViewers[0].Url))
+			{
+				Settings.Default.Url1 = mViewers[0].Url.Trim();
+			}
+			if (!string.IsNullOrWhiteSpace(mViewers[1].Url))
+			{
+				Settings.Default.Url2 = mViewers[1].Url.Trim();
+			}
+			if (!string.IsNullOrWhiteSpace(mViewers[2].Url))
+			{
+				Settings.Default.Url3 = mViewers[2].Url.Trim();
+			}
+			if (!string.IsNullOrWhiteSpace(mViewers[3].Url))
+			{
+				Settings.Default.Url4 = mViewers[3].Url.Trim();
+			}
+			Settings.Default.Save();
 		}
 	}
 }

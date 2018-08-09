@@ -1,7 +1,18 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CarEyePlayerDemo.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Url1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">rtmp://www.car-eye.cn:10085/live/123</Value>
+    </Setting>
+    <Setting Name="Url2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">rtmp://www.car-eye.cn:10085/live/13510671870&amp;channel=1</Value>
+    </Setting>
+    <Setting Name="Url3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">rtsp://www.car-eye.cn:10554/careye_pusher.sdp</Value>
+    </Setting>
+    <Setting Name="Url4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">rtmp://www.car-eye.cn:10085/live/123</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
