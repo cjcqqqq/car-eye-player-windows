@@ -228,10 +228,13 @@ namespace CarEyePlayerDemo.Player
 				return;
 			}
 
+			// 防止线程抢占
+			IntPtr tmpPlayer = mPlayer;
+			mPlayer = IntPtr.Zero;
 			try
 			{
 				Debug.WriteLine("Stop playing...");
-				PlayerMethods.CEPlayer_Close(mPlayer);
+				PlayerMethods.CEPlayer_Close(tmpPlayer);
 				Debug.WriteLine("Stop played...");
 			}
 			catch (AccessViolationException ex)
@@ -242,7 +245,7 @@ namespace CarEyePlayerDemo.Player
 			{
 				Debug.WriteLine($"Stop ex: {ex1.Message}");
 			}
-			mPlayer = IntPtr.Zero;
+
 			this.Invoke(new Action(() =>
 			 				{
 			 					this.btnPlay.Text = "播放";
@@ -407,6 +410,11 @@ namespace CarEyePlayerDemo.Player
 			switch (e.Status)
 			{
 				case PlayerMethods.MSG_OPEN_DONE:
+					if (mPlayer == IntPtr.Zero)
+					{
+						// 有时候结束也会触发该事件
+						break;
+					}
 					PlayerMethods.CEPlayer_SetOSDFont(mPlayer, "微软雅黑", 24);
 					ShowTipString($"成功打开链接{DateTime.Now.ToLongTimeString()}...");
 					Debug.WriteLine("Open done...");
