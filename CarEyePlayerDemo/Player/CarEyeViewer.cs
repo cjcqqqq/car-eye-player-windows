@@ -381,6 +381,11 @@ namespace CarEyePlayerDemo.Player
 			mTipString = string.Copy(aMsg);
 			try
 			{
+				// 再次进行判断，防止已经被关掉
+				if (mPlayer == IntPtr.Zero)
+				{
+					return;
+				}
 				PlayerMethods.CEPlayer_SetOSD(mPlayer, 20, 20, Color.FromArgb(0, 255, 0).ToArgb(), mTipString);
 
 				mTipCount = 0;
@@ -425,7 +430,6 @@ namespace CarEyePlayerDemo.Player
 					break;
 
 				case PlayerMethods.MSG_OPEN_FAILED:
-					ShowTipString("链接打开失败");
 					Debug.WriteLine("Open fail...");
 					break;
 
@@ -433,18 +437,15 @@ namespace CarEyePlayerDemo.Player
 					Debug.WriteLine("Play completed...");
 					if (mTotalTime > 1000)
 					{
-						ShowTipString("播放完成");
 						StopPlay();
 					}
 					break;
 
 				case PlayerMethods.MSG_STREAM_CONNECTED:
-					ShowTipString("已连接...");
 					Debug.WriteLine("Connected...");
 					break;
 
 				case PlayerMethods.MSG_STREAM_DISCONNECT:
-					ShowTipString("连接断开...");
 					Debug.WriteLine("Disconnected...");
 					this.BeginInvoke(new Action(() => this.lblView.Refresh()));
 					break;
