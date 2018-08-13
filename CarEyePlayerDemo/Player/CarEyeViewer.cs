@@ -114,7 +114,7 @@ namespace CarEyePlayerDemo.Player
 				// 								CE_VIDEO_SCALE_MODE.VIDEO_MODE_STRETCHED, 100, 50)));
 				this.trackVolume.Value = 7;
                 mPlayer = PlayerMethods.CEPlayer_Open(this.Url, this.lblView.Handle, CE_VIDEO_RENDER_TYPE.VIDEO_RENDER_TYPE_GDI,
-                                                                 CE_VIDEO_SCALE_MODE.VIDEO_MODE_STRETCHED, 100, 95);
+                                                                 CE_VIDEO_SCALE_MODE.VIDEO_MODE_LETTERBOX, 100, 95);
                 // 								mPlayer = PlayerMethods.player_open(this.Url, this.lblView.Handle, IntPtr.Zero);
                 Debug.WriteLine("Start playing...");
 			}
