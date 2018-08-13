@@ -76,7 +76,6 @@
 			this.trackVolume.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.trackVolume.AutoSize = false;
-			this.trackVolume.Enabled = false;
 			this.trackVolume.LargeChange = 1;
 			this.trackVolume.Location = new System.Drawing.Point(429, 31);
 			this.trackVolume.Name = "trackVolume";
@@ -84,6 +83,7 @@
 			this.trackVolume.Size = new System.Drawing.Size(21, 267);
 			this.trackVolume.TabIndex = 6;
 			this.trackVolume.TickStyle = System.Windows.Forms.TickStyle.None;
+			this.trackVolume.Value = 7;
 			this.trackVolume.ValueChanged += new System.EventHandler(this.trackVolume_ValueChanged);
 			// 
 			// lblTotalTime
