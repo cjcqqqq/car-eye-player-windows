@@ -30,6 +30,7 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			this.pnlBase = new System.Windows.Forms.Panel();
+			this.chkScaleMode = new System.Windows.Forms.CheckBox();
 			this.trackVolume = new System.Windows.Forms.TrackBar();
 			this.lblTotalTime = new System.Windows.Forms.Label();
 			this.lblCurTime = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.pnlBase.BackColor = System.Drawing.SystemColors.Control;
+			this.pnlBase.Controls.Add(this.chkScaleMode);
 			this.pnlBase.Controls.Add(this.trackVolume);
 			this.pnlBase.Controls.Add(this.lblTotalTime);
 			this.pnlBase.Controls.Add(this.lblCurTime);
@@ -70,6 +72,18 @@
 			this.pnlBase.Name = "pnlBase";
 			this.pnlBase.Size = new System.Drawing.Size(454, 342);
 			this.pnlBase.TabIndex = 1;
+			// 
+			// chkScaleMode
+			// 
+			this.chkScaleMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.chkScaleMode.AutoSize = true;
+			this.chkScaleMode.Location = new System.Drawing.Point(193, 5);
+			this.chkScaleMode.Name = "chkScaleMode";
+			this.chkScaleMode.Size = new System.Drawing.Size(48, 16);
+			this.chkScaleMode.TabIndex = 7;
+			this.chkScaleMode.Text = "拉伸";
+			this.chkScaleMode.UseVisualStyleBackColor = true;
+			this.chkScaleMode.CheckedChanged += new System.EventHandler(this.chkScaleMode_CheckedChanged);
 			// 
 			// trackVolume
 			// 
@@ -187,7 +201,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtUrl.Location = new System.Drawing.Point(9, 3);
 			this.txtUrl.Name = "txtUrl";
-			this.txtUrl.Size = new System.Drawing.Size(236, 21);
+			this.txtUrl.Size = new System.Drawing.Size(178, 21);
 			this.txtUrl.TabIndex = 0;
 			this.txtUrl.Text = "rtmp://www.car-eye.cn:10085/live/123";
 			// 
@@ -259,5 +273,6 @@
 		private System.Windows.Forms.Label lblTotalTime;
 		private System.Windows.Forms.Timer tmrPlay;
 		private System.Windows.Forms.TrackBar trackVolume;
+		private System.Windows.Forms.CheckBox chkScaleMode;
 	}
 }

@@ -115,7 +115,8 @@ namespace CarEyePlayerDemo.Player
 //				this.trackVolume.Value = 7;
 				int volume = -255 + this.trackVolume.Value * 50;
 				mPlayer = PlayerMethods.CEPlayer_Open(this.Url, this.lblView.Handle, CE_VIDEO_RENDER_TYPE.VIDEO_RENDER_TYPE_GDI,
-                                                                 CE_VIDEO_SCALE_MODE.VIDEO_MODE_LETTERBOX, 100, volume);
+                                                                this.chkScaleMode.Checked ? CE_VIDEO_SCALE_MODE.VIDEO_MODE_STRETCHED : CE_VIDEO_SCALE_MODE.VIDEO_MODE_LETTERBOX, 
+																100, volume);
                 // 								mPlayer = PlayerMethods.player_open(this.Url, this.lblView.Handle, IntPtr.Zero);
                 Debug.WriteLine("Start playing...");
 			}
@@ -699,6 +700,28 @@ namespace CarEyePlayerDemo.Player
 			{
 				int volume = -255 + this.trackVolume.Value * 50;
 				PlayerMethods.SetParam(mPlayer, CE_PARAM_ID.PARAM_AUDIO_VOLUME, volume);
+			}
+			catch
+			{
+
+			}
+		}
+
+		/// <summary>
+		/// 拉伸状态变换事件
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void chkScaleMode_CheckedChanged(object sender, EventArgs e)
+		{
+			if (mPlayer == IntPtr.Zero)
+			{
+				return;
+			}
+
+			try
+			{
+				PlayerMethods.SetParam(mPlayer, CE_PARAM_ID.PARAM_VIDEO_MODE, (int)(this.chkScaleMode.Checked ? CE_VIDEO_SCALE_MODE.VIDEO_MODE_STRETCHED : CE_VIDEO_SCALE_MODE.VIDEO_MODE_LETTERBOX));
 			}
 			catch
 			{
