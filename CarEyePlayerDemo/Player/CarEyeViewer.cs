@@ -110,15 +110,12 @@ namespace CarEyePlayerDemo.Player
 			try
 			{
 				Debug.WriteLine("Start play...");
-				// 				mPlayer = (IntPtr)Invoke(new Func<IntPtr>(() => PlayerMethods.CEPlayer_Open(Url, this.lblView.Handle, CE_VIDEO_RENDER_TYPE.VIDEO_RENDER_TYPE_GDI,
-				// 								CE_VIDEO_SCALE_MODE.VIDEO_MODE_STRETCHED, 100, 50)));
-//				this.trackVolume.Value = 7;
 				int volume = -255 + this.trackVolume.Value * 50;
 				mPlayer = PlayerMethods.CEPlayer_Open(this.Url, this.lblView.Handle, CE_VIDEO_RENDER_TYPE.VIDEO_RENDER_TYPE_GDI,
                                                                 this.chkScaleMode.Checked ? CE_VIDEO_SCALE_MODE.VIDEO_MODE_STRETCHED : CE_VIDEO_SCALE_MODE.VIDEO_MODE_LETTERBOX, 
 																100, volume);
-                // 								mPlayer = PlayerMethods.player_open(this.Url, this.lblView.Handle, IntPtr.Zero);
-                Debug.WriteLine("Start playing...");
+
+				Debug.WriteLine("Start playing...");
 			}
 			catch (AccessViolationException ex)
 			{
@@ -424,6 +421,9 @@ namespace CarEyePlayerDemo.Player
 					Debug.WriteLine($"Total time is {mTotalTime}ms");
 					this.BeginInvoke(new Action(() =>
 					{
+						// 更新音量及拉伸样式
+						trackVolume_ValueChanged(null, null);
+						chkScaleMode_CheckedChanged(null, null);
 						this.btnRecord.Enabled = true;
 						this.btnScreenshot.Enabled = true;
 						this.btnFast.Enabled = this.btnSlow.Enabled = true;
@@ -722,6 +722,8 @@ namespace CarEyePlayerDemo.Player
 			try
 			{
 				PlayerMethods.SetParam(mPlayer, CE_PARAM_ID.PARAM_VIDEO_MODE, (int)(this.chkScaleMode.Checked ? CE_VIDEO_SCALE_MODE.VIDEO_MODE_STRETCHED : CE_VIDEO_SCALE_MODE.VIDEO_MODE_LETTERBOX));
+				// 设置完拉伸参数,强制更新显示
+				lblView_SizeChanged(null, null);
 			}
 			catch
 			{
