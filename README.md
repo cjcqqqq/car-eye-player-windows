@@ -6,7 +6,7 @@ car-eye-player Windows 播放器是由car-eye团队开发和维护的一个完�
 
 运行情况：
 
-![](images/Demo.png)
+![](https://github.com/Car-eye-team/car-eye-player-windows/blob/master/images/Car-eye-player.png)
 
 
 # Car-eye-player 播放器系列
