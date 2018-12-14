@@ -32,13 +32,17 @@ namespace CarEyePlayerDemo.Player
         /// 断开链接
         /// </summary>
         public const int MSG_STREAM_DISCONNECT = (('D' << 24) | ('C' << 16) | ('N' << 8) | ('T' << 0));
+		/// <summary>
+		/// 码率计算通知
+		/// </summary>
+		public const int MSG_VIDEO_BITRATE = (('B' << 24) | ('I' << 16) | ('T' << 8) | ('R' << 0));
 
-        /// <summary>
-        /// 激活播放器
-        /// </summary>
-        /// <param name="license">注册码</param>
-        /// <returns></returns>
-        [DllImport("libCarEyePlayer.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "CEPlayer_Authorize")]
+		/// <summary>
+		/// 激活播放器
+		/// </summary>
+		/// <param name="license">注册码</param>
+		/// <returns></returns>
+		[DllImport("libCarEyePlayer.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "CEPlayer_Authorize")]
 		public static extern int CEPlayer_Authorize(string license);
 
 		/// <summary>

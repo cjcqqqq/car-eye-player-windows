@@ -418,7 +418,7 @@ namespace CarEyePlayerDemo.Player
 					ShowTipString($"成功打开链接{DateTime.Now.ToLongTimeString()}...");
 					Debug.WriteLine("Open done...");
 					mTotalTime = PlayerMethods.GetLongParam(mPlayer, CE_PARAM_ID.PARAM_MEDIA_DURATION);
-					Debug.WriteLine($"Total time is {mTotalTime}ms");
+					Debug.WriteLine($"Total time is {mTotalTime}ms.");
 					this.BeginInvoke(new Action(() =>
 					{
 						// 更新音量及拉伸样式
@@ -449,6 +449,10 @@ namespace CarEyePlayerDemo.Player
 					{
 						StopPlay();
 					}
+					break;
+
+				case PlayerMethods.MSG_VIDEO_BITRATE:
+					Debug.WriteLine($"Bitrate is {(double)e.Param / 1000}.");
 					break;
 
 				case PlayerMethods.MSG_STREAM_CONNECTED:
@@ -489,6 +493,8 @@ namespace CarEyePlayerDemo.Player
 				mTipCount = 0;
 				tmrTip.Stop();
 			}
+// 			long bitRate = PlayerMethods.GetLongParam(mPlayer, CE_PARAM_ID.PARAM_VIDEO_BITRATE);
+// 			Debug.WriteLine($"bitRate is {bitRate}.");
 		}
 
 		/// <summary>

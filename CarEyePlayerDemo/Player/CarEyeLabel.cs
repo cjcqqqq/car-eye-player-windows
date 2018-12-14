@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace CarEyePlayerDemo.Player
@@ -25,7 +24,7 @@ namespace CarEyePlayerDemo.Player
 			{
 				case PlayerMethods.MSG_CAREYE_PLAYER:
 					ConnectStatus = (int)m.WParam;
-					ConnectStatusChanged?.Invoke(this, new PlayerStatusEventArgs(ConnectStatus));
+					ConnectStatusChanged?.Invoke(this, new PlayerStatusEventArgs(ConnectStatus, (Int64)m.LParam));
 					//Debug.WriteLine($"Label Player msg: 0x{m.WParam.ToString("X8")}...");
 					break;
 
